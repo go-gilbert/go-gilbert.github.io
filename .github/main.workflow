@@ -9,11 +9,11 @@ action "master branch only" {
 }
 
 action "gh-pages-deploy" {
-  uses = "x1unix/github-pages-deploy-action@master"
+  uses = "go-gilbert/go-gilbert.github.io@action"
   env = {
     BRANCH = "gh-pages"
-    BUILD_SCRIPT = "npm install && npm run-script build:gh-pages"
-    FOLDER = "dist/fallout77"
+    BUILD_SCRIPT = "deploy.sh"
+    FOLDER = "dist"
   }
   needs = ["master branch only"]
   secrets = ["GITHUB_TOKEN"]
