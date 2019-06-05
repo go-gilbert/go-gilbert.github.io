@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Quick Start </title>
+
+  
+  <meta name="description" content="Up and running in under a minute"> 
+  
+  
+  
+  
+  
+
+  
+
+  <meta name="author" content="go-gilbert">
+
+
+  <meta property="og:title" content="Quick Start" />
+<meta property="og:description" content="Up and running in under a minute" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://go-gilbert.github.io/docs/quick-start/" />
+
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+
+  <link rel="canonical" href="https://go-gilbert.github.io/docs/quick-start/">  
+
+  <link rel="shortcut icon" type="image/png" href="https://go-gilbert.github.io/img/icon.png">
+
+
+  <link href="/css/font.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.legenda.css" rel="stylesheet" type="text/css">
+  <link href="/css/highlight.css" rel="stylesheet" type="text/css">
+  <link href="/css/master.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.demo.css" rel="stylesheet" type="text/css">
+  <link href="/css/hljs/atom-one-light.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+ <link href="/css/custom.css" rel="stylesheet" type="text/css">
+ <link href="/css/dark.css" rel="stylesheet" type="text/css">
+
+  <script src="/js/jquery-2.1.4.min.js" type="text/javascript">
+  </script>
+  <script src="/js/theming.js"></script>
+  <script type="text/javascript" src="/js/tocbot.min.js"></script>
+</head>
+
+
+<body class="page-kube">
+  <header> <div class="show-sm">
+    <div id="nav-toggle-box">
+      <div id="nav-toggle-brand">
+        <a href="https://go-gilbert.github.io/">Gilbert</a>
+      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+  </div>
+  <div class="hide-sm" id="top">
+    <div id="top-brand">
+      <a href="https://go-gilbert.github.io/" title="Gilbert">
+        <img src="https://go-gilbert.github.io/img/gilbert.png" class="head__logo--img" height="48" width="48" />
+      </a>
+    </div>
+    <nav id="top-nav-main">
+      <ul>
+       
+       
+    <li><a href="/docs/quick-start" >Quick start</a></li>
+    
+    <li><a href="/docs/" >Documentation</a></li>
+    
+    <li><a href="https://github.com/go-gilbert/gilbert" >Source</a></li>
+    
+      </ul>
+    </nav>
+    <nav id="top-nav-extra"> 
+      <ul>
+        <li>
+          <span id="theme-switcher" title="Switch theme">
+    <i class="far fa-sun" style="font-weight: bold"></i>
+    <i class="far fa-moon"></i>
+</span>
+        </li>
+          
+      </ul>
+    </nav>
+  </div>
+ </header>
+  <main>
+  <div id="main">
+    <div id="hero">
+      <h1> Quick Start </h1>
+      <p class="hero-lead">
+           This article covers installation of Gilbert on your local machine.
+      </p>
+
+    </div> 
+    <div id="kube-component" class="content">
+    
+<nav id="contents">
+    <ol class="js-toc">
+    </ol>
+</nav>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded",
+function(){
+tocbot.init({
+
+tocSelector: '.js-toc',
+
+contentSelector: '.content',
+
+headingSelector: 'h3'
+})
+}
+);
+</script>
+
+
+
+    
+
+<p><h3 class="section-head" id="installation">
+    <a href="#installation">Installation</a>
+</h3>
+<h4>Linux, macOS and FreeBSD</h4>
+<p>
+    Run this command to install Gilbert on your system:</p>
+
+<pre><code class="language-bash">curl https://raw.githubusercontent.com/go-gilbert/gilbert/master/install.sh | sh
+</code></pre>
+
+<p>Default installation path is <code>$GOPATH/bin</code>
+<h4>Windows</h4>
+<p>
+    You can download release binaries from <a href="https://github.com/go-gilbert/gilbert/releases" target="_blank">releases page</a> or install using PowerShell script:
+</p></p>
+
+<pre><code class="language-powershell">Invoke-Expression (Invoke-Webrequest 'https://raw.githubusercontent.com/go-gilbert/gilbert/master/install.ps1' -UseBasicParsing).Content
+</code></pre>
+
+<p><b>Note:</b> You should run <code>Set-ExecutionPolicy Bypass</code> in PowerShell to be able to execute installation script.</p>
+
+<p><h3 class="section-head" id="project-integration">
+    <a href="#project-integration">Project integration</a>
+</h3>
+<p>
+    <strong>Gilbert</strong> uses <code>gilbert.yaml</code> file to store list of tasks to run in project folder.
+</p>
+<p>
+    To generate a sample <code>gilbert.yaml</code> file, navigate to your project directory in terminal and run <code>gilbert init</code> command:
+</p></p>
+
+<pre><code>$ cd $GOPATH/src/github.com/user/myproject
+$ gilbert init
+</code></pre>
+
+<p>
+    This command will generate a sample file with <code>build</code>,<code>clean</code> and <code>cover</code> tasks:
+</p>
+
+<pre><code class="language-yaml">version: &quot;1.0&quot;
+vars:
+  appVersion: 1.0.0
+tasks:
+  build:
+  - description: Build project
+    action: build
+  clean:
+  - if: file ./vendor
+    description: Remove vendor files
+    action: shell
+    params:
+      command: rm -rf ./vendor
+  cover:
+  - description: Check project coverage
+    action: cover
+    params:
+      reportCoverage: true
+      threshold: 60
+      packages:
+      - ./...
+</code></pre>
+
+<p><h3 class="section-head" id="available-tasks">
+    <a href="#available-tasks">Available tasks</a>
+</h3>
+<p>
+    To get list of available tasks, run
+</p></p>
+
+<pre><code class="language-bash">gilbert ls
+</code></pre>
+
+<p><h3 class="section-head" id="running-tasks">
+    <a href="#running-tasks">Running tasks</a>
+</h3>
+<p>
+    To run a task declared in <code>gilbert.yaml</code>, use <code>gilbert run</code> command.
+</p>
+<p>
+    <b>Example:</b></p>
+
+<pre><code class="language-bash">gilbert run build
+</code></pre>
+
+<p>See <a href="../commands/#run-task">command docs</a> for more information.
+</p></p>
+
+<h3 class="section-head" id="next-steps">
+    <a href="#next-steps">
+        
+        Next Steps
+        
+    </a>
+</h3>
+
+<p>We recommend to take a look at theese links to get more information about Gilbert:</p>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+<li><a href="../syntax">File Syntax</a></li>
+<li><a href="../actions">Built-in Actions</a></li>
+</ul>
+
+<h4 id="examples">Examples</h4>
+
+<ul>
+<li><a href="ttps://github.com/x1unix/demo-go-plugins">Sample project</a></li>
+</ul>
+
+<h4 id="tools">Tools</h4>
+
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=x1unix.gilbert">Plugin for Visual Studio Code</a></li>
+</ul>
+
+
+    <script src='/js/highlight.pack.js'></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    </div>
+    </div>
+</main>
+  <footer>   <footer id="footer">
+    <nav>
+      <ul>
+        <li><span>Gilbert</span></li>
+        <li>
+          <a href="/docs/">Docs</a>
+        </li>
+        <li>
+          <a href="https://github.com/go-gilbert/gilbert">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <p>2019 &copy; Licence MIT.</p>
+  </footer> </footer>
+
+
+  <script src="/js/kube.js" type="text/javascript">
+  </script>
+  <script src="/js/kube.legenda.js" type="text/javascript">
+  </script>
+  <script src="/js/master.js" type="text/javascript">
+  </script>
+</body>
+
+</html>

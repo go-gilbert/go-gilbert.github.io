@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Gilbert</title>
+    <link>https://go-gilbert.github.io/docs/</link>
+    <description>Recent content in Docs on Gilbert</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://go-gilbert.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quick Start</title>
+      <link>https://go-gilbert.github.io/docs/quick-start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go-gilbert.github.io/docs/quick-start/</guid>
+      <description>Installation  Linux, macOS and FreeBSD  Run this command to install Gilbert on your system:
+curl https://raw.githubusercontent.com/go-gilbert/gilbert/master/install.sh | sh  Default installation path is $GOPATH/bin Windows  You can download release binaries from releases page or install using PowerShell script: Invoke-Expression (Invoke-Webrequest &#39;https://raw.githubusercontent.com/go-gilbert/gilbert/master/install.ps1&#39; -UseBasicParsing).Content  Note: You should run Set-ExecutionPolicy Bypass in PowerShell to be able to execute installation script.
+Project integration   Gilbert uses gilbert.yaml file to store list of tasks to run in project folder.</description>
+    </item>
+    
+    <item>
+      <title>Commands</title>
+      <link>https://go-gilbert.github.io/docs/commands/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go-gilbert.github.io/docs/commands/</guid>
+      <description>Init   gilbert init  Creates a gilbert.yaml file with basic tasks.
+List tasks   gilbert ls  Lists tasks defined in gilbert.yaml file.
+Run task   gilbert run task_name  Runs task by name and returns non-zero exit code if task fails.
+Flags You can set or override job variables with --var command.
+Example:
+gilbert run build-app --var foo=value1 --var bar=value2  Maintenance   Commands above are not related to job execution and used for managing Gilbert configuration and storage.</description>
+    </item>
+    
+    <item>
+      <title>Syntax</title>
+      <link>https://go-gilbert.github.io/docs/syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go-gilbert.github.io/docs/syntax/</guid>
+      <description>Manifest file   gilbert.yaml it&amp;rsquo;s a yaml file that contains all information about your tasks and tells Gilbert what to do when you try to run specific task.
+This file should be located at the root folder of your codebase, or at least at the same location where you call gilbert command.
+Run gilbert init command to create a sample gilbert.yaml file.
+Structure   gilbert.yaml consists of tasks, and tasks include a list of jobs to be done and rules.</description>
+    </item>
+    
+    <item>
+      <title>Built-in actions</title>
+      <link>https://go-gilbert.github.io/docs/actions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go-gilbert.github.io/docs/actions/</guid>
+      <description>Build action  Build action is abstraction over go build compile tool and simplifies build params pass. This action can operate without configuration. Configuration sample
+version: 1.0 tasks: build: - action: build params: source: &#39;github.com/foo/bar&#39; # default: current package buildMode: &#39;c-archive&#39; # default: &amp;quot;default&amp;quot; outputPath: &#39;./build/foo.exe&#39; # default: project directory tags: &#39;foo bar baz&#39; # set of build tags, separated by space params: stripDebugInfo: true # removes debug info, default: false linkerFlags: # custom linker flags, default: empty - &#39;-X main.</description>
+    </item>
+    
+    <item>
+      <title>Plugins</title>
+      <link>https://go-gilbert.github.io/docs/plugins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go-gilbert.github.io/docs/plugins/</guid>
+      <description>Import a plugin   Before using a plugin, it should be imported into your gilbert.yaml file. Each import declaration should be in URL format
+Plugin will be download automatically at first start and you will be able to use all actions that it exports.
+plugins: - github://github.com/go-gilbert/gilbert-plugin-example # import URL tasks: hello-world: # each plugin action should be in format &#39;plugin-name:action-name&#39; - action: &#39;example-plugin:hello-world&#39; params: message: &#39;hello world&#39;  Import sources   Each plugin import URL starts with import handler as schema (e.</description>
+    </item>
+    
+    <item>
+      <title>Create a plugin</title>
+      <link>https://go-gilbert.github.io/docs/plugin-development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go-gilbert.github.io/docs/plugin-development/</guid>
+      <description>Intro   Plugins are generic Go libraries, compiled with plugin build mode. Current target requires Go version 1.12 with enabled modules support.
+Plugins are currently supported only on Linux and macOS.
+Structure   Each plugin should export two methods:
+ func GetPluginName() string - returns plugin name func GetPluginActions() sdk.Actions - returns a map with action name as key and handler as value  Action lifecycle   Each time when job fires an action, Gilbert searches for handler factory that will return an action handler instance.</description>
+    </item>
+    
+  </channel>
+</rss>

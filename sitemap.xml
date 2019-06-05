@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://go-gilbert.github.io/blog/welcome/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/docs/quick-start/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/docs/commands/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/docs/syntax/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/blog/typography/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/blog/prototyping/</loc>
+    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/docs/actions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/docs/plugins/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/docs/plugin-development/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/blog/messages/</loc>
+    <lastmod>2017-04-10T16:41:34+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/blog/collapse/</loc>
+    <lastmod>2017-04-10T16:42:50+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/blog/inline-style/</loc>
+    <lastmod>2017-04-02T21:56:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/blog/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/company/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/categories/design/</loc>
+    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/docs/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/tags/example/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/faq/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/categories/general/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/tags/hugo/</loc>
+    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/tags/markdown/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/password-recovery/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/tags/prototype/</loc>
+    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/account/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go-gilbert.github.io/tags/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
