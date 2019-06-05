@@ -1,0 +1,33 @@
+baseURL = "https://go-gilbert.github.io/"
+languageCode = "en-us"
+title = "Gilbert"
+theme = "kube"
+description = "Task runner for Go projects"
+Paginate = 4
+[Params]
+  RSSLink = "/index.xml"
+  author = "go-gilbert" # add your company name
+  github = "https://github.com/go-gilbert/gilbert"
+  twitter = "@go-gilbert" # add your twitter profile
+  email = "denis0051@gmail.com"
+
+[[menu.main]]
+    name = "Quick start"
+    weight = 10
+    url = "/docs/quick-start"
+[[menu.main]]
+    name = "Documentation"
+    weight = 20
+    url = "/docs/"
+[[menu.main]]
+    name = "Source"
+    weight = 30
+    url = "https://github.com/go-gilbert/gilbert"
+# [[menu.main]]
+#     name = "Blog"
+#     weight = -100
+#     url = "/blog/"
+# [[menu.main]]
+#     name = "Faq"
+#     weight = -100
+#     url = "/faq/"
