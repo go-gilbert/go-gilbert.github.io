@@ -20,4 +20,8 @@ cd ${DIST}
 git add .
 git commit -m "Update docs (${COMMIT})"
 git push -f origin ${BRANCH}
+
+echo "Clean..."
+cd ..
+rm -rf ${DIST}
 echo "DONE!"
