@@ -60,7 +60,7 @@ There are 2 type of variables:
 **Tip:** variable values could be set or changed using [command flags](../commands/#run-task).
 
 
-#### Prefefined variables
+#### Predefined variables
 
 By default, there are a few predefined variables in global scope:
 
