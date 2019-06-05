@@ -181,9 +181,30 @@ tasks:
   <span class="param-optional"></span> - Optional parameter but depends on action<br />
 </p>
 
+#### Subtasks
+
+Task can call another tasks and pass or replace variables with own values.
+
+```yaml
+tasks:
+  start-qa:
+    - task: start-server            # call 'start-server' task
+      vars:                         # with overrided 'config' variable
+        config: ./config-qa.json
+  
+  start-server:
+    - action: shell
+      vars:
+        config: ./config.json
+      params:
+        command: './build/server -c {{config}}'
+```
+
 {{<doc-section id="mixins" label="Mixins" >}}
 
-Mixin is a set of jobs that can be included into task and used to reduce boilerplate code in `gilbert.yaml` file.
+Mixin is a set of jobs that can be included into task.<br />
+Mixin serves as a template for common actions and used to reduce boilerplate code and do not clutter up tasks list.
+
 Also, one of the biggest differences that most of values can contain template expressions.  
 
 #### Declaration
@@ -205,7 +226,8 @@ Each mixin should be declared in `mixins` section and have the same syntax as re
 Mixins are called by tasks and use job variables as parameters.
 The same mixin can be called several times with different parameters in the same job.
 
-*Example:*
+**Example:**
+
 ```yaml
 version: 1.0
 mixins:
