@@ -2,14 +2,14 @@
 COMMIT=$(git log --format=%H -n 1)
 DIST="./dist"
 REPO="git@github.com:go-gilbert/go-gilbert.github.io.git"
-BRANCH="gh-pages"
+BRANCH="master"
 
 echo "Cloning destination branch..."
 git clone ${REPO} --branch ${BRANCH} --single-branch ${DIST}
 
 echo "Clean..."
 cd ${DIST}
-ls | grep -v .nojekyll | xargs rm -rf
+ls -A | grep -v -E '^(.git|.nojekyll|README.md)$' | xargs rm -rf
 cd ..
 
 echo "Building docs..."
