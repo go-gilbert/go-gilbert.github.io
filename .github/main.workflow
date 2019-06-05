@@ -12,7 +12,7 @@ action "gh-pages-deploy" {
   uses = "go-gilbert/go-gilbert.github.io@action"
   env = {
     BRANCH = "gh-pages"
-    BUILD_SCRIPT = "deploy.sh"
+    BUILD_SCRIPT = "hugo -d ./dist"
     FOLDER = "dist"
   }
   needs = ["master branch only"]
