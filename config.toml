@@ -1,4 +1,4 @@
-baseURL = "https://go-gilbert.github.io/gilbert/"
+baseURL = "https://go-gilbert.github.io/"
 languageCode = "en-us"
 title = "Gilbert"
 theme = "kube"
