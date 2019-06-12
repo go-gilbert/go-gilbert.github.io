@@ -46,15 +46,13 @@ $ gilbert init
 </p>
 
 ```yaml
-version: "1.0"
-vars:
-  appVersion: 1.0.0
+version: 1.0
 tasks:
   build:
   - description: Build project
     action: build
   clean:
-  - if: file ./vendor
+  - if: [ -f ./vendor ]
     description: Remove vendor files
     action: shell
     params:
@@ -105,7 +103,7 @@ We recommend to take a look at theese links to get more information about Gilber
 
 #### Examples
 
-* [Sample project](ttps://github.com/x1unix/demo-go-plugins)
+* [Sample project](https://github.com/go-gilbert/project-example)
 
 #### Tools
 
