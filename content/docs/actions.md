@@ -278,6 +278,43 @@ tasks:
   <span class="param-required"></span> - Required parameter<br />
 </p>
 
+{{<doc-section id="html-cover-action" label="HTML coverage report action" >}}
+
+Shows coverage report in web-browser.
+
+#### Configuration sample
+
+```yaml
+tasks:
+  cover-html:
+    - action: cover:html
+      params:
+        packages:
+        - './foo'
+        - './bar'
+```
+
+<table>
+    <tr>
+        <th>Param name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td class="param-required"><code>packages</code></td>
+        <td><i>[]string</i></td>
+        <td>List of packages process</td>
+    </tr>
+    <tr>
+        <td><code>timeout</code></td>
+        <td><i>int</i></td>
+        <td>Time in milliseconds to wait for web-browser before coverge report file removal</td>
+    </tr>
+</table>
+<p>
+  <span class="param-required"></span> - Required parameter<br />
+</p>
+
 <h3 class="section-head" id="get-package-action"><a href="#get-package-action">Get-Package action</a></h3>
 <p>
 	Installs libraries using `go get` tool
@@ -298,7 +335,7 @@ tasks:
 ```
 <h4>Configuration params</h4>
 <p>
-	    <table>
+    <table>
         <tr>
             <th>Param name</th>
             <th>Type</th>
