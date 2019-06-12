@@ -174,15 +174,13 @@ $ gilbert init
     This command will generate a sample file with <code>build</code>,<code>clean</code> and <code>cover</code> tasks:
 </p>
 
-<pre><code class="language-yaml">version: &quot;1.0&quot;
-vars:
-  appVersion: 1.0.0
+<pre><code class="language-yaml">version: 1.0
 tasks:
   build:
   - description: Build project
     action: build
   clean:
-  - if: file ./vendor
+  - if: [ -f ./vendor ]
     description: Remove vendor files
     action: shell
     params:
@@ -242,7 +240,7 @@ tasks:
 <h4 id="examples">Examples</h4>
 
 <ul>
-<li><a href="ttps://github.com/x1unix/demo-go-plugins">Sample project</a></li>
+<li><a href="https://github.com/go-gilbert/project-example">Sample project</a></li>
 </ul>
 
 <h4 id="tools">Tools</h4>

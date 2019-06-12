@@ -163,10 +163,6 @@ about your tasks and tells <em>Gilbert</em> what to do when you try to run speci
 <p>Here is an annotated example of <code>gilbert.yaml</code> file.</p>
 
 <pre><code class="language-yaml">version: 1.0
-imports:
-  - ./misc/mixins.yaml
-vars:
-  appVersion: 1.0.0
 tasks:
   build:
   - description: Build project
@@ -221,14 +217,14 @@ tasks:
 <h3 class="section-head" id="h-templates">
     <a href="#h-templates">
         
-        String templates
+        String expressions
         
     </a>
 </h3>
 
-<p>All variable values and some other params can contain not only static value, but also template expression.</p>
+<p>All variable values and some other params can contain not only static value, but also string expression.</p>
 
-<p>String template can contain a value of any variable (<code>{{ var_name }}</code>) or a value of some shell command (<code>{% whoami %}</code>) or both.</p>
+<p>String expression can contain a value of any variable (<code>{{ var_name }}</code>) or a value of some shell command (<code>{% whoami %}</code>) or both.</p>
 
 <p><strong>Example:</strong></p>
 
@@ -239,6 +235,54 @@ vars:
 
 <p>The value of variable <em>foo</em> will be:<br />
 <code>go version go1.10.1 linux/amd64 is installed on /usr/local/go</code></p>
+
+<h3 class="section-head" id="h-go-templates">
+    <a href="#h-go-templates">
+        
+        Go templates
+        
+    </a>
+</h3>
+
+<p><code>gilbert.yaml</code> supports Go template expressions.
+Expressions should be wrapped with <code>{{{ ... }}}</code>.</p>
+
+<p>Also manifest template includes some useful functions:</p>
+
+<ul>
+<li><code>slice</code> - creates a new slice</li>
+<li><code>shell</code> - runs shell command and returns command output</li>
+<li><code>split</code> - splits string by char</li>
+<li><code>yaml</code> - serializes slice to YAML/JSON string</li>
+</ul>
+
+<pre><code class="language-yaml">version: 1.0
+
+# Run shell command and split output string by &quot;\n&quot; char
+{{{ $libs := shell &quot;ls -1 ./libs | tr '\n' '\0' | xargs -0 -n 1 basename&quot; | split &quot;\n&quot; }}}
+
+# Define a slice template variable
+{{{ $packages := slice &quot;./foo&quot; &quot;./bar&quot; }}}
+
+tasks:
+  build-libs:
+    {{{ range $libs }}}
+    - mixin: build-lib
+      vars:
+        name: {{{.}}}
+    {{{ end }}}
+
+    cover:
+    - action: cover
+      params:
+        threshold: 40
+        reportCoverage: true
+        packages: 
+          {{{ $packages | yaml }}}  # Serialize and insert slice
+</code></pre>
+
+<p>The difference between <strong>Go template expressions</strong> and <strong>String expressions</strong> is that values in template cannot be <em>changed</em>,
+because first <strong>Gilbert</strong> compiles Go template in <code>gilbert.yaml</code> and then process the result as YAML file.</p>
 
 <h3 class="section-head" id="tasks">
     <a href="#tasks">
@@ -436,7 +480,7 @@ tasks:
     </a>
 </h3>
 
-<p>You can find a good use-case example in <a href="https://github.com/go-gilbert/demo-go-plugins" target="_blank">this demo project</a>.<br />
+<p>You can find a good use-case example in <a href="https://github.com/go-gilbert/project-example" target="_blank">this demo project</a>.<br />
 That repo demonstrates usage of mixins and a few built-in actions for a real-world web-server example.</p>
 
 

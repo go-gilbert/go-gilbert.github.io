@@ -133,7 +133,9 @@ headingSelector: 'h3'
 
 
 
-    <p><h3 class="section-head" id="build-action"><a href="#build-action">Build action</a></h3>
+    
+
+<p><h3 class="section-head" id="build-action"><a href="#build-action">Build action</a></h3>
 <p>
     Build action is abstraction over <code>go build</code> compile tool and simplifies build params pass.
     <br />
@@ -408,6 +410,48 @@ tasks:
   <span class="param-required"></span> - Required parameter<br />
 </p></p>
 
+<h3 class="section-head" id="html-cover-action">
+    <a href="#html-cover-action">
+        
+        HTML coverage report action
+        
+    </a>
+</h3>
+
+<p>Shows coverage report in web-browser.</p>
+
+<h4 id="configuration-sample">Configuration sample</h4>
+
+<pre><code class="language-yaml">tasks:
+  cover-html:
+    - action: cover:html
+      params:
+        packages:
+        - './foo'
+        - './bar'
+</code></pre>
+
+<p><table>
+    <tr>
+        <th>Param name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td class="param-required"><code>packages</code></td>
+        <td><i>[]string</i></td>
+        <td>List of packages process</td>
+    </tr>
+    <tr>
+        <td><code>timeout</code></td>
+        <td><i>int</i></td>
+        <td>Time in milliseconds to wait for web-browser before coverge report file removal</td>
+    </tr>
+</table>
+<p>
+  <span class="param-required"></span> - Required parameter<br />
+</p></p>
+
 <p><h3 class="section-head" id="get-package-action"><a href="#get-package-action">Get-Package action</a></h3>
 <p>
     Installs libraries using <code>go get</code> tool
@@ -429,7 +473,7 @@ tasks:
 
 <p><h4>Configuration params</h4>
 <p>
-        <table>
+    <table>
         <tr>
             <th>Param name</th>
             <th>Type</th>
